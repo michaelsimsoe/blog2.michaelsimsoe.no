@@ -1,0 +1,34 @@
+{
+  "name": "blog2.michaelsimsoe.no",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "start": "node dist/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelsimsoe/blog2.michaelsimsoe.no.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelsimsoe/blog2.michaelsimsoe.no/issues"
+  },
+  "homepage": "https://github.com/michaelsimsoe/blog2.michaelsimsoe.no#readme",
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.1.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "marked": "^13.0.3",
+    "ts-frontmatter": "^1.0.1"
+  }
+}
