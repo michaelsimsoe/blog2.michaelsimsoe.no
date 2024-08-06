@@ -19,4 +19,8 @@ yarn.lock
 # Ignore Windows specific files
 Thumbs.db
 
-/dist/* !index.html/dist/* !index.html
+# Ignore everything in dist directory
+dist/*
+
+# But not index.html
+!dist/index.html
