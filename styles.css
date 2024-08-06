@@ -23,6 +23,11 @@ header {
   font-size: 2em;
 }
 
+@media (min-width: 768px) {
+  .styles-module--logo--e4a4b h1 {
+      font-size: 36px;
+  }
+}
 .header-sub-text {
   font-size: 1.2em;
   color: #707070;
