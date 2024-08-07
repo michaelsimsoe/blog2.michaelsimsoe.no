@@ -2,7 +2,7 @@
 title: Objekter i Javascript
 date: '2021-07-31T23:00:00.000'
 updated: '2021-07-31T23:00:00.000'
-description: ''
+description: 'Objektene i javascript er i praksis lik datastrukturen ordbok (🙈 dictionary). Javascript har vel egentlig ingen formening om klasser slik klassiske objektorienterte språk har'
 slug: 'objekter-i-javascript'
 tags:
   - javascript
