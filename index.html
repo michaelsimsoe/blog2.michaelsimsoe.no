@@ -6,28 +6,34 @@
     <title>Jeg liker deg - michaelsimsoe.no</title>
     <link
       rel="icon"
-      href="./static/favicon-32x32.png?v=cb9a0969318329b3f3ee30f50e179b97"
+      href="/static/favicon-32x32.png?v=cb9a0969318329b3f3ee30f50e179b97"
       type="image/png"
     />
     <link rel="stylesheet" href="./static/styles.css" />
   </head>
   <body>
     <header class="main-header">
-      <a href="/" class="header-link-container">
-        <div class="header-main-text">michael krøyserth-simsø</div>
-        <div class="header-sub-text">
-          fullstack med en dæsj av <span>design</span>
-        </div>
-      </a>
+      <div class="header-link-container">
+        <a href="/" class="header-link">
+          <div class="header-main-text">michael krøyserth-simsø</div>
+          <div class="header-sub-text">
+            fullstack med en dæsj av <span>design</span>
+          </div>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a class="header-nav__link header-nav__link--current" href="/">Hjem</a>
+        <a class="header-nav__link" href="/">Om meg</a>
+      </nav>
     </header>
 
     <main>
       <section class="hero-image-main-container">
         <figure class="hero-image-main">
-          <img src="./static/michaelsimso.svg" alt="hero image" />
+          <img src="/static/michaelsimso.svg" alt="hero image" />
         </figure>
         <figure class="hero-image-heart">
-          <img src="./static/heart.svg" alt="heart" class="heart" />
+          <img src="/static/heart.svg" alt="heart" class="heart" />
         </figure>
       </section>
 
@@ -39,7 +45,13 @@
               <a class="article-preview__link" href="/">
                 <h3>Objekter i Javascript</h3>
               </a>
-              <div class="article-preview__tags"></div>
+              <div class="article-preview__tags">
+                  <div
+                    class="article-preview__tag"
+                  >
+                    <a class="" href="/">javascript</a>
+                  </div>
+              </div>
               <div class="article-preview__meta">
                 <time datetime="31.07.2021"
                   >31.07.2021 <em>(oppdatert 31.07.2021)</em></time
@@ -146,5 +158,8 @@
         </section>
       </div>
     </footer>
+
+    <script type="module" src="/dist/app/main.js">
+    </script>
   </body>
 </html>
