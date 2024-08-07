@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "clean": "node scripts/clean.js",
-    "start": "node dist/build.js"
+    "build": "tsc && mv dist/build/build.js dist/build/build.mjs",
+    "clean": "node scripts/clean.cjs",
+    "start": "node dist/build/build.mjs"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },
+  "type": "module",
   "dependencies": {
     "fs-extra": "^11.2.0",
     "marked": "^13.0.3",
