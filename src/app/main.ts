@@ -17,11 +17,14 @@
 //         console.error('Error fetching or displaying posts:', error);
 //     }
 // });
+console.log("main.ts loaded");
 
-window.addEventListener("pageswap", (event) => {
-  console.log("Page swap event:", event);
-});
+document.addEventListener("DOMContentLoaded", async () => {
+  window.addEventListener("pageswap", (event) => {
+    console.log("Page swap event:", event);
+  });
 
-window.addEventListener("pagereveal", (event) => {
-  console.log("Page reveal event:", event);
+  window.addEventListener("pagereveal", (event) => {
+    console.log("Page reveal event:", event);
+  });
 });

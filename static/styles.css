@@ -82,9 +82,9 @@ dd {
 p {
   margin-bottom: 0.75em;
 }
-
+/* 
 @view-transition {
-  navigation: auto;
+  navigation: auto !important;
 }
 
 .article-preview__link-heading {
@@ -93,7 +93,7 @@ p {
 
 .post-header__heading-container h1 {
   view-transition-name: post-heading;
-}
+} */
 
 /*
     Header
@@ -157,7 +157,7 @@ p {
 .header-nav__link {
   color: #707070;
   font-size: 1.2rem;
-  margin-left: 1rem;
+  margin-left: 1.5rem;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -166,9 +166,9 @@ p {
   color: var(--app-red-color);
 }
 
-.header-nav__link--current::before {
+/* .header-nav__link--current::before {
   content: "✔ ";
-}
+} */
 
 /*
     Main content

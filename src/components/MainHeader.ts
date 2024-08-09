@@ -29,11 +29,12 @@ class MainHeader extends HTMLElement {
 
   setCurrentNavLink() {
     const currentPath = window.location.pathname;
+
     const navLinks = this.querySelectorAll(".header-nav__link");
     // console.log(currentPath)
     navLinks.forEach((link) => {
-        // console.log(link.getAttribute("href"))
-        if (link.getAttribute("href") === currentPath) {
+      // console.log(link.getAttribute("href"))
+      if (link.getAttribute("href") === currentPath) {
         link.classList.add("header-nav__link--current");
       } else {
         link.classList.remove("header-nav__link--current");
