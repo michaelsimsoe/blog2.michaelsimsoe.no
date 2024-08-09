@@ -82,7 +82,7 @@ dd {
 p {
   margin-bottom: 0.75em;
 }
-/* 
+
 @view-transition {
   navigation: auto !important;
 }
@@ -91,9 +91,9 @@ p {
   view-transition-name: post-heading;
 }
 
-.post-header__heading-container h1 {
+.post-header__heading-container__heading {
   view-transition-name: post-heading;
-} */
+}
 
 /*
     Header
