@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{title}}</title>
-  <link rel="stylesheet" href="../styles.css">
-</head>
-<body>
-  <header>
-    <h1>{{title}}</h1>
-  </header>
-  <main>
-    {{content}}
-  </main>
-  <footer>
-    <p>&copy; 2024 My Blog</p>
-  </footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}} - michaelsimsoe.no</title>
+    <link
+      rel="icon"
+      href="/static/favicon-32x32.png?v=cb9a0969318329b3f3ee30f50e179b97"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+
+    <script type="module" src="/app/components.js"></script>
+  </head>
+  <body>
+    <main-header></main-header>
+    <main>
+      <article class="post">
+        <header class="post-header">
+          <div class="post-header__heading-container">
+            <h1>{{title}}</h1>
+          </div>
+          <div class="post__hero-img">
+            <div class="post__hero-img__wrapper">
+              <img src="/{{HERO_URL}}" alt="hero image" />
+            </div>
+          </div>
+          <div class="post-header__post-tags">
+            <div class="">
+              <a href="/">javascript</a>
+            </div>
+          </div>
+          <div class="post-header__datetime">
+            <time datetime="31.07.2021">{{date}}{{updated}}</time>
+            <div>ca. {{readingDuration}} minutter med lesestoff</div>
+          </div>
+        </header>
+        <section class="post-content">{{content}}</section>
+      </article>
+    </main>
+    <footer-component></footer-component>
+  </body>
 </html>

@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Objekter i Javascript",
+    "date": "2021-07-31T23:00:00.000",
+    "updated": "2021-07-31T23:00:00.000",
+    "description": "Objektene i javascript er i praksis lik datastrukturen ordbok (🙈 dictionary). Javascript har vel egentlig ingen formening om klasser slik klassiske objektorienterte språk har",
+    "tags": ["javascript"],
+    "heroimage": "./images/javascript_logo.png",
+    "readingDuration": 3,
+    "slug": "objekter-i-javascript"
+  },
+  {
+    "title": "Ulik import url hindrer Angular service å opptre som en singleton",
+    "date": "2020-10-13T23:00:00.000",
+    "updated": "2020-10-13T23:00:00.000",
+    "description": "Selvopplevd nettopp. Ulik url ved import av en tilsynelatende servicesingleton fra to ulike komponenter gjør at servicen instantieres på nytt.",
+    "tags": ["angular", "service", "hodepine"],
+    "heroimage": "./images/service.png",
+    "readingDuration": 2,
+    "slug": "angular-service-blir-ikke-singleton"
+  },
+  {
+    "title": "Hva er ng-template i Angular?",
+    "date": "2020-10-06T20:00:00.000Z",
+    "updated": "2020-10-06T20:00:00.000Z",
+    "description": "Hva er egentlig ng-template i Angular og hva brukes den til?",
+    "tags": ["javascript", "angular", "direktiver"],
+    "readingDuration": 3,
+    "slug": "hva-er-ng-template-i-angular"
+  },
+  {
+    "title": "Backup av Postgres fra docker",
+    "date": "2020-09-03T23:00:00.000Z",
+    "updated": "2020-09-03T23:00:00.000Z",
+    "description": "Backup av dokerisert Posgresql database i et Ruby on Rails prosjekt og deretter importere tilbake data.",
+    "tags": ["postgresql", "docker", "devops", "Ruby on Rails"],
+    "readingDuration": 1,
+    "slug": "backup-av-dockerisert-postgresql-db"
+  },
+  {
+    "title": "Hva er webpack? En introduksjon",
+    "date": "2020-02-20T18:00:00.000Z",
+    "updated": "2020-03-03T20:00:00.000Z",
+    "description": "Webpack er en modulbunter som bringer mer på banen enn det som tidligere har vært. Vi ser også på litt historie.",
+    "tags": ["javascript", "utviklingsmiljø", "produktivitet", "webpack"],
+    "heroimage": "./images/webpack.png",
+    "readingDuration": 4,
+    "slug": "hva-er-webpack-en-introduksjon"
+  }
+]

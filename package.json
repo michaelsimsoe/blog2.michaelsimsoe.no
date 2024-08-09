@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsc && mv dist/build/build.js dist/build/build.mjs",
     "clean": "node scripts/clean.cjs",
-    "start": "node dist/build/build.mjs"
+    "start": "node dist/build/build.mjs",
+    "dev": "npm run clean && npm run build && npm run start",
+    "watch": "watch 'npm run dev' ./"
   },
   "repository": {
     "type": "git",

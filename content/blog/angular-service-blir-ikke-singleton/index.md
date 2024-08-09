@@ -8,7 +8,7 @@ tags:
   - angular
   - service
   - hodepine
-heroimage: ./images/service.png
+heroimage: service.png
 published: true
 ---
 

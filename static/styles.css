@@ -83,6 +83,18 @@ p {
   margin-bottom: 0.75em;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
+.article-preview__link-heading {
+  view-transition-name: post-heading;
+}
+
+.post-header__heading-container h1 {
+  view-transition-name: post-heading;
+}
+
 /*
     Header
 */
@@ -105,6 +117,7 @@ p {
 .header-link {
   color: #000000;
   text-decoration: none;
+  line-height: 1;
 }
 
 .header-main-text {
@@ -267,7 +280,6 @@ main {
   text-decoration: none;
 }
 
-
 article-preview .article-preview__meta {
   color: #707070;
   font-size: 12px;
@@ -370,22 +382,11 @@ article-preview .article-preview__meta {
 }
 .footer__secondary a {
   margin-right: 1rem;
+  text-decoration: none;
 }
-.footer__secondary a svg {
-  height: 40px;
+.footer__secondary a img {
+  height: 56px;
   z-index: 50;
-}
-
-.outline {
-  fill: #069;
-}
-.inline {
-  fill: #fff;
-}
-
-.cls_1 {
-  fill: #fff;
-  fill-rule: evenodd;
 }
 
 @media (min-width: 768px) {
@@ -410,4 +411,79 @@ article-preview .article-preview__meta {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+/*
+    Blog Post
+*/
+
+/* .post {} */
+
+.post-header {
+  margin-bottom: 40px;
+}
+
+.post-header__heading-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.post__hero-img {
+  position: relative;
+  overflow: hidden;
+}
+.post__hero-img__wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 42rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.post__hero-img__wrapper img {
+  object-fit: cover;
+  opacity: 1;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  max-width: none;
+  padding: 0;
+  /* position: absolute; */
+  right: 0;
+  top: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.post-header__post-tags {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 42rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.post-header__datetime {
+  color: #707070;
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+}
+
+.post-content {
+}
+
+.post-content__image-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.post-content img {
+  max-width: 100%;
+  vertical-align: middle;
 }

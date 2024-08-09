@@ -6,7 +6,7 @@ description: 'Objektene i javascript er i praksis lik datastrukturen ordbok (ğŸ™
 slug: 'objekter-i-javascript'
 tags:
   - javascript
-heroimage: ./images/javascript_logo.png
+heroimage: javascript_logo.png
 published: true
 ---
 

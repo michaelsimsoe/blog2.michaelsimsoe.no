@@ -9,7 +9,7 @@ tags:
   - utviklingsmiljø
   - produktivitet
   - webpack
-heroimage: ./images/webpack.png
+heroimage: webpack.png
 published: true
 ---
 

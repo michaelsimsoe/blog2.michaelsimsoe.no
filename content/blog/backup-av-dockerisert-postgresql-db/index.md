@@ -10,7 +10,7 @@ tags:
   - devops
   - Ruby on Rails
 published: true
-# heroimage: ./images/webpack.png
+# heroimage:
 ---
 
 # Backup og import av data med Posgresql og Docker
