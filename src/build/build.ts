@@ -71,7 +71,9 @@ async function processMarkdown(
       {
         name: "image",
         renderer(token) {
-          return `<div class="post-content__image-wrapper"><img src="${token.href}" alt="${token.text}" class="article-image" /></div>`;
+          const cleanHref = token.href.replace(/^\./, "");
+          const fullPath = `${slug}${cleanHref}`;
+          return `<div class="post-content__image-wrapper"><img src="/${fullPath}" alt="${token.text}" class="article-image" /></div>`;
         },
       },
     ],
