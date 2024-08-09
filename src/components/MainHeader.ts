@@ -21,7 +21,7 @@ class MainHeader extends HTMLElement {
           </div>
           <nav class="header-nav">
             <a class="header-nav__link" href="/">Hjem</a>
-            <a class="header-nav__link" href="/about/">Om meg</a>
+            <a class="header-nav__link" href="/meg/">Om meg</a>
           </nav>
         </header>
       `;

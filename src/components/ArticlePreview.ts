@@ -46,19 +46,16 @@ class ArticlePreview extends HTMLElement {
             </a>
             <div class="article-preview__tags">
               ${tags
-                .map(
-                  (tag) =>
-                    `<div class="article-preview__tag"><a href="#">${tag}</a></div>`
-                )
+                .map((tag) => ` <tag-component name="${tag}"></tag-component>`)
                 .join("")}
             </div>
             <div class="article-preview__meta">
               <time datetime="${new Date(date).toISOString()}">
-                ${new Date(
-                  date
-                ).toLocaleDateString()} <em>(oppdatert ${new Date(
-      updated
-    ).toLocaleDateString()})</em>
+                ${new Date(date).toLocaleDateString()}${
+      updated != date
+        ? ` <em>(oppdatert ${new Date(updated).toLocaleDateString()})</em>`
+        : ""
+    }
               </time>
               <div>ca. ${readingDuration} minutter med lesestoff</div>
             </div>

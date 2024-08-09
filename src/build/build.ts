@@ -13,7 +13,7 @@ const CONTENT_DIR = path.join(__dirname, "../../content/blog");
 const OUTPUT_DIR = path.join(__dirname, "../../dist");
 const TEMPLATE_PATH = path.join(__dirname, "../../templates/post.html");
 const STATIC_DIR = path.join(__dirname, "../../static");
-const ABOUT_DIR = path.join(__dirname, "../../about");
+const ABOUT_DIR = path.join(__dirname, "../../meg");
 const POSTS_JSON = path.join(OUTPUT_DIR, "posts.json");
 
 // Read and compile the template
@@ -82,13 +82,36 @@ async function processMarkdown(
   const htmlContent = marked.parse(content.body);
 
   // Replace placeholders in the template
+  const norwegianDate = new Date(date).toLocaleString("no-NO", {
+    timeZone: "Europe/Oslo",
+  });
+  const norwegianUpdated = new Date(updated).toLocaleString("no-NO", {
+    timeZone: "Europe/Oslo",
+  });
+
   const finalContent = template
     .replaceAll("{{title}}", title)
-    .replaceAll("{{date}}", date)
-    .replaceAll("{{updated}}", ` <em>(${updated})</em>` || "")
+    .replaceAll("{{date}}", norwegianDate)
+    .replaceAll(
+      "{{updated}}",
+      updated != date ? ` <em>(${norwegianUpdated})</em>` : ""
+    )
     .replaceAll("{{readingDuration}}", readingDuration.toString())
     .replace("{{content}}", await htmlContent)
-    .replace("{{HERO_URL}}", heroImageUrl || "");
+    .replaceAll(
+      "{{TAGS}}",
+      tags
+        .map((tag: string) => ` <tag-component name="${tag}"></tag-component>`)
+        .join("")
+    )
+    .replace(
+      "{{HERO_URL}}",
+      heroImageUrl
+        ? ` <div class="post__hero-img__wrapper">
+              <img src="/${heroImageUrl}" alt="hero image" />
+            </div>`
+        : ""
+    );
 
   await fs.outputFile(outputPath, finalContent);
 
@@ -144,7 +167,7 @@ async function processDirectory(
 // Copy static assets
 async function copyStaticAssets() {
   await fs.copy(STATIC_DIR, OUTPUT_DIR + "/static");
-  await fs.copy(ABOUT_DIR, OUTPUT_DIR + "/about");
+  await fs.copy(ABOUT_DIR, OUTPUT_DIR + "/meg");
 }
 
 // Generate JSON file with posts metadata

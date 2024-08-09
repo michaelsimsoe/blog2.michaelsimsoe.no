@@ -13,10 +13,8 @@ class FooterComponent extends HTMLElement {
           <div class="footer__container">
             <section>
               <p>
-                Jeg heter Michael Krøyserth-Simsø. Jeg en frontendutvikler med. Kan
-                håndere baksiden godt ved behov. Holder til i Tromsø. Liker alt
-                Javscript. Har en forkjærlighet for design og interaksjonsdesign.
-                Synes i all hemmelighet at DevOps er spennende.
+                Michael Krøyserth-Simsø, altså. Frontendutvikler, men jeg lar meg ikke begrense. Holder til i Tromsø. Liker Javscript. Har en forkjærlighet for design og interaksjonsdesign.
+                Synes i all hemmelighet at DevOps er spennende. Det er mye jeg ikke kan, enda.
               </p>
             </section>
             <section class="footer__secondary">
