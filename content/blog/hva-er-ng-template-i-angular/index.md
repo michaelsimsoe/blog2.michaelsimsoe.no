@@ -10,6 +10,7 @@ tags:
   - direktiver
 # heroimage: ./images/webpack.png
 published: true
+id: a6a65aff-f76f-44b2-99c1-c07db1d2a924
 ---
 
 _Jeg skal bli den beste Angularutvikleren jeg kan bli. For å bli best må man kunne det grunnleggende godt. Meget godt!_
