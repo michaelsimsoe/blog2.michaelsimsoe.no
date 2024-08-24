@@ -4,30 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jeg liker deg - michaelsimsoe.no</title>
-    <link
-      rel="icon"
-      href="/static/favicon-32x32.png?v=cb9a0969318329b3f3ee30f50e179b97"
-      type="image/png"
-    />
-    <link rel="stylesheet" href="./static/styles.css" />
-    <script type="module" src="/dist/app/components.js"></script>
+    <link rel="icon" href="/static/favicon-32x32.png" type="image/png" />
+    <!-- <script type="module" src="/app/components.js"></script> -->
+    <link rel="stylesheet" href="src/static/styles.css" />
     <style>
       @view-transition {
         navigation: auto;
       }
-
-      .article-preview__link-heading {
-        view-transition-name: post-heading;
-      }
-
-      .post-header__heading-container h1 {
-        view-transition-name: post-heading;
-      }
     </style>
   </head>
   <body>
-    <main-header></main-header>
-
+    <main-header id="main-header"></main-header>
     <main>
       <section class="hero-image-main-container">
         <figure class="hero-image-main">
@@ -40,46 +27,15 @@
 
       <section class="articles">
         <h2 class="articles__heading">- se, han <strong>skriver</strong></h2>
-        <section class="article-list">
-          <article>
-            <header class="article-preview">
-              <a class="article-preview__link" href="/objekter-i-javascript/">
-                <h3 class="article-preview__link-heading">
-                  Objekter i Javascript
-                </h3>
-              </a>
-              <div class="article-preview__tags">
-                <div class="article-preview__tag">
-                  <a class="" href="/">javascript</a>
-                </div>
-              </div>
-              <div class="article-preview__meta">
-                <time datetime="31.07.2021"
-                  >31.07.2021 <em>(oppdatert 31.07.2021)</em></time
-                >
-                <div>ca. 2 minutter med lesestoff</div>
-              </div>
-            </header>
-            <section class="article-preview__intro">
-              <p>
-                🗃️Javascript og objektet Objektene i javascript er i praksis lik
-                datastrukturen ordbok (🙈 dictionary). Javascript har vel
-                egentlig ingen…
-                <a
-                  class="styles-module--article__read_more--181d7"
-                  href="/objekter-i-javascript/"
-                  ><strong>[ ... ]</strong></a
-                >
-              </p>
-            </section>
-          </article>
-        </section>
+        <section class="article-list"></section>
       </section>
     </main>
 
     <footer-component></footer-component>
 
-    <script type="module" src="/dist/app/main.js"></script>
+    /*
+    <script type="module" src="/app/main.js"></script>
+    */
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
         try {
