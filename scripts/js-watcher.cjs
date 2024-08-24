@@ -1,77 +1,87 @@
-const fs = require("fs");
-const path = require("path");
+const chokidar = require("chokidar");
 const { exec } = require("child_process");
+const path = require("path");
 
-// Directory to watch
 const directoryToWatch = path.join(__dirname, "../");
-
-// Command to run when a change is detected
-// const commandToRun = 'echo "File change detected!"';
-const commandToRun = "npm run dev";
-
-// Directories to exclude from watching
-const excludeDirectories = [path.join(directoryToWatch, "../dist")];
-
-// File extensions to watch
-const fileExtensionsToWatch = [".js", ".ts", ".json", ".css", ".html", ".md"];
-
-// Helper function to check if a path is in an excluded directory
-const isExcluded = (filePath) => {
-  return excludeDirectories.some((excludeDir) =>
-    filePath.startsWith(excludeDir)
-  );
+const buildCommands = {
+  markdown: "npm run build:markdown",
+  typescript: "npm run build:ts",
+  assets: "node scripts/build-assets.cjs",
+  pages: "node scripts/build-pages.cjs",
 };
 
-// Helper function to check if a file has an allowed extension
-const hasAllowedExtension = (filePath) => {
-  return fileExtensionsToWatch.includes(path.extname(filePath));
-};
+// Initialize watcher
+const watcher = chokidar.watch(directoryToWatch, {
+  ignored: ["**/dist/**", "**/node_modules/**"],
+  persistent: true,
+});
 
-// Recursively watch a directory, excluding specified directories
-const watchDirectory = (dir) => {
-  const files = fs.readdirSync(dir);
+watcher.on("change", (filePath) => {
+  console.log(`File ${filePath} has changed. Processing...`);
 
-  files.forEach((file) => {
-    const fullPath = path.join(dir, file);
-    const stats = fs.statSync(fullPath);
-
-    if (stats.isDirectory()) {
-      if (!isExcluded(fullPath)) {
-        watchDirectory(fullPath); // Recursively watch the directory
+  if (filePath.endsWith(".md")) {
+    const command = buildCommands.markdown + " " + filePath;
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error processing markdown: ${error.message}`);
+        return;
       }
-    } else {
-      watchFile(fullPath);
-    }
-  });
-};
-
-// Watch a single file
-const watchFile = (filePath) => {
-  if (!isExcluded(filePath) && hasAllowedExtension(filePath)) {
-    fs.watch(filePath, (eventType, filename) => {
-      if (eventType === "change") {
-        console.log(`Change detected on file: ${filename}`);
-
-        // Run the CLI command
-        exec(commandToRun, (error, stdout, stderr) => {
-          if (error) {
-            console.error(`Error executing command: ${error.message}`);
-            return;
-          }
-          if (stderr) {
-            console.error(`Command stderr: ${stderr}`);
-            return;
-          }
-          console.log(`Command stdout: ${stdout}`);
-        });
+      console.log(stdout);
+    });
+  } else if (filePath.endsWith(".ts")) {
+    exec(buildCommands.typescript, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error processing TypeScript: ${error.message}`);
+        return;
       }
+      console.log(stdout);
+    });
+  } else if (filePath.match(/\.(css|svg|png|jpg|jpeg|gif)$/)) {
+    // Use build-assets.js for copying the changed file
+    const command = `${buildCommands.assets} copy "${filePath}"`;
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error processing assets: ${error.message}`);
+        return;
+      }
+      console.log(stdout);
+    });
+  } else if (filePath.endsWith(".html") && filePath.includes("/pages/")) {
+    const command = `${buildCommands.pages} copy "${filePath}"`;
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error processing page: ${error.message}`);
+        return;
+      }
+      console.log(stdout);
     });
   }
-};
+});
 
-// Start watching the directory
-watchDirectory(directoryToWatch);
+watcher.on("unlink", (filePath) => {
+  if (filePath.match(/\.(css|svg|png|jpg|jpeg|gif)$/)) {
+    // Use build-assets.js for deleting the removed file
+    const command = `${buildCommands.assets} delete "${filePath}"`;
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error deleting assets: ${error.message}`);
+        return;
+      }
+      console.log(stdout);
+    });
+  }
+});
 
-console.log(
-  `Watching for changes in ${directoryToWatch}, excluding specified directories, and monitoring specific file types...`
-);
+// Add a command for building all pages
+const buildAllPagesCommand = `${buildCommands.pages} build-all`;
+
+exec(buildAllPagesCommand, (error, stdout, stderr) => {
+  if (error) {
+    console.error(`Error building all pages: ${error.message}`);
+    return;
+  }
+  console.log("All pages built successfully.");
+  console.log(stdout);
+});
+
+console.log("Watching for file changes...");
