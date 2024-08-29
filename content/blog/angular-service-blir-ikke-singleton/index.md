@@ -10,6 +10,7 @@ tags:
   - hodepine
 heroimage: service.png
 published: true
+id: bc2ee16c-9a05-4d0d-ae29-3ada4bb61fe6
 ---
 
 # ☁ En singleton som ikke vil

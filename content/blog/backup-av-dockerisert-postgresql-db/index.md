@@ -10,6 +10,7 @@ tags:
   - devops
   - Ruby on Rails
 published: true
+id: e8614031-b56b-4512-b11d-3d0fa82fdda6
 # heroimage:
 ---
 

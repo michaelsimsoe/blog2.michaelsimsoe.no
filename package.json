@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "build": "tsc && mv dist/build/build.js dist/build/build.mjs",
+    "build": "npm run clean && npm run build:all",
     "clean": "node scripts/clean.cjs",
-    "start": "node dist/build/build.mjs",
-    "dev": "npm run clean && npm run build && npm run start",
-    "watch": "watch 'npm run dev' ./"
+    "build:all": "npm run build:ts && npm run build:markdown && npm run build:assets",
+    "build:ts": "tsc --outDir dist --project tsconfig.json",
+    "build:markdown": "node scripts/convert-markdown-to-html.cjs",
+    "build:markdown:all": "node scripts/convert-markdown-to-html.cjs build-all",
+    "build:assets": "node scripts/build-assets.cjs",
+    "build:json": "node scripts/blog-post-json.cjs build",
+    "build:json:delete": "node scripts/blog-post-json.cjs delete",
+    "build:data": "node scripts/handle-data.cjs",
+    "build:production": "NODE_ENV=production node scripts/build-production.mjs",
+    "dev": "nodemon --watch src --ext ts,md,css,html --exec 'npm run build' ",
+    "dev:watch": "ts-node scripts/ts-watcher.ts"
   },
   "repository": {
     "type": "git",
@@ -24,11 +33,12 @@
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.1.0",
+    "chalk": "^5.3.0",
+    "chokidar": "^3.6.0",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },
-  "type": "module",
   "dependencies": {
     "fs-extra": "^11.2.0",
     "marked": "^13.0.3",

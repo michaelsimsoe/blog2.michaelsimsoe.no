@@ -8,6 +8,7 @@ tags:
   - javascript
 heroimage: javascript_logo.png
 published: true
+id: 3464b44c-75f4-4ed9-af82-45c028ea0830
 ---
 
 ## 🗃️Javascript og objektet

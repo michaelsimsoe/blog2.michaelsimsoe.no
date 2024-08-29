@@ -11,6 +11,7 @@ tags:
   - webpack
 heroimage: webpack.png
 published: true
+id: 488c2258-0c83-4456-8541-6b85d6660468
 ---
 
 # Hva er Webpack?
