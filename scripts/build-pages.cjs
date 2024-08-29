@@ -4,6 +4,15 @@ const path = require("path");
 // Paths (Modify these paths as necessary for your project structure)
 const PAGES_DIR = path.join(__dirname, "../pages");
 const OUTPUT_DIR = path.join(__dirname, "../dist");
+const JSON_FILE = path.join(__dirname, "../data/posts.json");
+const STATIC_DIRECTORIES = [
+  "app",
+  "data",
+  "components",
+  "scripts",
+  "build",
+  "static",
+];
 
 // Function to copy a page file or directory
 async function copyPage(filePath) {
@@ -18,16 +27,36 @@ async function copyPage(filePath) {
   }
 }
 
-// Function to handle deleted pages
-async function removeDeletedPage(filePath) {
-  const relativePath = path.relative(PAGES_DIR, filePath);
-  const outputPath = path.join(OUTPUT_DIR, relativePath);
+// Function to remove page where slug is not present in posts.json based on directory name
+// Does not remove the pages from /pages directory
+async function removeRedundantPages() {
+  const posts = JSON.parse(fs.readFileSync(JSON_FILE, "utf-8"));
+  const pageDirs = await fs.readdir(OUTPUT_DIR);
 
-  try {
-    await fs.remove(outputPath);
-    console.log(`Removed page: ${outputPath}`);
-  } catch (err) {
-    console.error(`Error removing page: ${outputPath} - ${err.message}`);
+  for (const pageDir of pageDirs) {
+    const pagePath = path.join(OUTPUT_DIR, pageDir);
+    const pageStat = await fs.stat(pagePath);
+
+    if (
+      pageStat.isDirectory() &&
+      !STATIC_DIRECTORIES.some((dir) => pageDir.includes(dir))
+    ) {
+      const slug = pageDir;
+      const postExists = posts.some((post) => post.slug === slug);
+      const pageExistsInPagesDir = await fs.pathExists(
+        path.join(PAGES_DIR, slug)
+      );
+
+      if (!postExists && !pageExistsInPagesDir) {
+        console.log(`Post not found for page: ${pageDir}. Removing...`);
+        await fs.remove(pagePath);
+      }
+
+      if (!postExists && !pageExistsInPagesDir) {
+        console.log(`Post not found for page: ${pageDir}. Removing...`);
+        await fs.remove(pagePath);
+      }
+    }
   }
 }
 
@@ -51,8 +80,8 @@ async function copyAllPages() {
 async function processPages(action, filePath) {
   if (action === "copy" && filePath) {
     await copyPage(filePath);
-  } else if (action === "delete" && filePath) {
-    await removeDeletedPage(filePath);
+  } else if (action === "delete") {
+    await removeRedundantPages();
   } else if (action === "build-all") {
     await copyAllPages();
   } else {

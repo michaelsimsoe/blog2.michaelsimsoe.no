@@ -38,7 +38,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
         try {
-          const response = await fetch("/posts.json");
+          const response = await fetch("data/posts.json");
           const posts = await response.json();
           const articleList = document.querySelector(".article-list");
 
