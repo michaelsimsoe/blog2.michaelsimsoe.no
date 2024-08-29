@@ -57,7 +57,7 @@ async function processMarkdownFile(filePath) {
         renderer(token) {
           const cleanHref = token.href.replace(/^\./, "");
           const fullPath = `${slug}${cleanHref}`;
-          return `<div class="post-content__image-wrapper"><img src="/${fullPath}" alt="${token.text}" class="article-image" /></div>`;
+          return `<div class="post-content__image-wrapper"><img src="/blogg/${fullPath}" alt="${token.text}" class="article-image" /></div>`;
         },
       },
     ],
@@ -91,7 +91,7 @@ async function processMarkdownFile(filePath) {
     .replace(
       "{{HERO_URL}}",
       heroImageUrl
-        ? `<div class="post__hero-img__wrapper"><img src="/${slug}/${heroImageUrl}" alt="hero image" /></div>`
+        ? `<div class="post__hero-img__wrapper"><img src="/blogg/${slug}/${heroImageUrl}" alt="hero image" /></div>`
         : ""
     );
 

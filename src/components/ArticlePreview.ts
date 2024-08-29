@@ -41,7 +41,7 @@ class ArticlePreview extends HTMLElement {
     this.innerHTML = `
         <article>
           <header class="article-preview">
-            <a class="article-preview__link" href="${slug}">
+            <a class="article-preview__link" href="blogg/${slug}">
               <h3 class="article-preview__link-heading">${title}</h3>
             </a>
             <div class="article-preview__tags">
@@ -63,7 +63,7 @@ class ArticlePreview extends HTMLElement {
           <section class="article-preview__intro">
             <p>
               ${description}
-              <a class="styles-module--article__read_more--181d7" href="${slug}">
+              <a class="styles-module--article__read_more--181d7" href="blogg/${slug}">
                 <strong>[ ... ]</strong>
               </a>
             </p>
