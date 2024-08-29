@@ -18,7 +18,7 @@
     "build:production": "NODE_ENV=production node scripts/build-production.mjs",
     "dev": "nodemon --watch src --ext ts,md,css,html --exec 'npm run build' ",
     "dev:watch": "ts-node scripts/ts-watcher.ts",
-    "nginx": "cp ./nginx.conf /etc/nginx/nginx.conf",
+    "nginx": "cp ./nginx.conf /etc/nginx/conf.conf/default.conf",
     "start": "npm run nginx"
   },
   "repository": {
