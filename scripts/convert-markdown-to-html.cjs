@@ -5,7 +5,7 @@ const { marked } = require("marked");
 
 // Paths (Modify these paths as necessary for your project structure)
 const CONTENT_DIR = path.join(__dirname, "../content/blog");
-const OUTPUT_DIR = path.join(__dirname, "../dist");
+const OUTPUT_DIR = path.join(__dirname, "../dist/blogg");
 const TEMPLATE_PATH = path.join(__dirname, "../templates/post.html");
 
 // Read and compile the template
