@@ -1,9 +1,4 @@
 [build]
-# Install Nginx and copy custom configuration
-command = """
-cp nginx.conf /etc/nginx/nginx.conf
-"""
-
-[start]
-# Start Nginx with the custom configuration
-command = "nginx -g 'daemon off;'"
+plan = [
+  { cmd = "cp ./nginx.conf /etc/nginx/nginx.conf", use_cache = false }
+]
