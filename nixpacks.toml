@@ -1,7 +1,6 @@
 [build]
 # Install Nginx and copy custom configuration
 command = """
-apk add --no-cache nginx
 cp nginx.conf /etc/nginx/nginx.conf
 """
 
