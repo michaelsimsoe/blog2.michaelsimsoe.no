@@ -1,4 +1,2 @@
-[build]
-plan = [
-  { cmd = "cp ./nginx.conf /etc/nginx/nginx.conf", use_cache = false }
-]
+[phases.build]
+cmds = ["cp ./nginx.conf /etc/nginx/nginx.conf", use_cache = false]
