@@ -19,7 +19,7 @@
     "dev": "nodemon --watch src --ext ts,md,css,html --exec 'npm run build' ",
     "dev:watch": "ts-node scripts/ts-watcher.ts",
     "nginx": "cp ./nginx.conf /etc/nginx/conf.d/default.conf",
-    "start": "npm run nginx"
+    "start": "ls -l "
   },
   "repository": {
     "type": "git",
