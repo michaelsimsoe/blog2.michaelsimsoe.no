@@ -1,2 +1,0 @@
-[phases.build]
-cmds = ["...", "cp ./nginx.conf /etc/nginx/nginx.conf"]
