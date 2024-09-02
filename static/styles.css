@@ -270,9 +270,9 @@ p {
 }
 
 .header-menu-btn {
-  position: fixed;
+  /* position: fixed;
   top: 29px;
-  right: 14px;
+  right: 14px; */
   display: flex;
   justify-content: space-between;
   padding-top: 1.625rem;
