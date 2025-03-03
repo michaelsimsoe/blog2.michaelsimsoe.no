@@ -66,6 +66,17 @@ exec(buildMarkdownCommand, (error, stdout, stderr) => {
   console.log(stdout);
 });
 
+// copy _redirects file to dist
+const copyRedirectsCommand = `cp ${__dirname}/../_redirects ${OUTPUT_DIR}/_redirects`;
+exec(copyRedirectsCommand, (error, stdout, stderr) => {
+  if (error) {
+    console.error(`Error copying _redirects: ${error.message}`);
+    return;
+  }
+  console.log("_redirects copied successfully.");
+  console.log(stdout);
+});
+
 // Copy data directory to output
 // Function to copy a data file over to OUTPUT_DIR/data
 async function copyDataFile() {

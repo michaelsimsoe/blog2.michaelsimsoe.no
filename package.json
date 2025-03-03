@@ -17,7 +17,7 @@
     "build:data": "node scripts/handle-data.cjs",
     "build:production": "NODE_ENV=production node scripts/build-production.mjs",
     "dev": "nodemon --watch src --ext ts,md,css,html --exec 'npm run build' ",
-    "dev:watch": "ts-node scripts/ts-watcher.ts"
+    "dev:watch": "ts-node scripts/js-watcher.mjs"
   },
   "repository": {
     "type": "git",
